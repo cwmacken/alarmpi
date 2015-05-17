@@ -8,3 +8,7 @@ special thanks to 2006Wicket for helping me make changes to my to the alarm conf
   
   
 Also I found I needed to use sudo crontab -e to call my files rather than crontab -e
+
+Happy Hacking
+
+-Conor 
