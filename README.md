@@ -1,23 +1,10 @@
-Welcome to the Alarm Pi code.
+Hello these are my edits to skiwithpete's repo located at https://github.com/skiwithpete/alarmpi
 
-It's "A Simple Spoken Weather And News Clock" for your Raspberry Pi.
+Here's the link to the youtube video https://www.youtube.com/watch?v=julETnOLkaU
 
-Please feel free to take it, and do what you will with it.
-
-Watch the video here:  http://youtu.be/julETnOLkaU
-
-*required packages:
-
-  sudo apt-get install python-feedparser mpg123 festival
-
-** YOU MUST USE RAMFS to avoid wear on your card and to enable Google Voice.
-
-  sudo mkdir -p /mnt/ram
-
-  echo "ramfs       /mnt/ram ramfs   nodev,nosuid,noexec,nodiratime,size=64M   0 0" | sudo tee -a /etc/fstab 
-
-*** and finally to set your alarm for 733AM Mon-Fri
-
-  crontab -e 33 7 * * 1-5 sudo python /home/pi/sound_the_alarm.pi
-
-Thanks again to Michael Kidd for adding the config file and giving this project a real structure.  
+special thanks to 2006Wicket for helping me make changes to my to the alarm config routes
+  
+  "For example, get_weather_yahoo.py has a line "config.read('alarm.conf')" which I changed to           "config.read('/home/pi/alarmpi/alarm.config')"
+  
+  
+Also I found I needed to use sudo crontab -e to call my files rather than crontab -e
