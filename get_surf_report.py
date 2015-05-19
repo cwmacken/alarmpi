@@ -28,7 +28,24 @@ try:
 
     msg = "This is the surf report for " + str(location) + " on " + str(date) + " at "+ str(hour) +"."+ " The surf is " + str(size) +" feet and the shape is "+ str(shape) +"."
 
-    surf_report = msg
+    tide_api = urllib.urlopen('http://api.spitcast.com/api/county/tide/los-angeles/')
+    tide_response = tide_api.read()
+    response_dictionary_tide = json.loads(tide_response)
+
+    current_tide = response_dictionary_tide[7]['tide']
+
+    next_tide = response_dictionary_tide[8]['tide']
+
+    direction = "dropping"
+
+    if next_tide > current_tide:
+        direction = "rising"
+
+    format_tide = round(current_tide,2)
+
+    tide = " The tide is "+ str(format_tide)+ " feet and "+ direction + "."
+
+    surf_report = msg + tide
 
     # current = response_dictionary['query']['results']['channel']['item']['condition']['temp']
     # current_low = response_dictionary['query']['results']['channel']['item']['forecast'][0]['low']
